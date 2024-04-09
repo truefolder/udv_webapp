@@ -44,5 +44,5 @@ app.UseSwaggerUI(c =>
 app.UseRouting();
 app.MapControllers();
 
-logger.Trace("Старт приложения");
 app.Run();
+logger.Trace("Application started");

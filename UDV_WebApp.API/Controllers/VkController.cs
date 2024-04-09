@@ -31,15 +31,15 @@ namespace UDV_WebApp.Controllers
             [FromQuery] string accessToken,
             [FromQuery] long pageId)
         {
-            _logger.Trace($"Вызван API метод {nameof(CountLetters)}");
+            _logger.Trace($"API Method called: {nameof(CountLetters)}");
             var posts = await _vkService.GetPostsAsync(accessToken, pageId);
             var letters = _statsService.CountLetters(posts);
 
-            _logger.Trace($"Запись результата в бд...");
+            _logger.Trace($"Writing result to db...");
             await _repository.Create(new CountResult(Guid.NewGuid(), letters));
-            _logger.Trace($"Запись результата в бд окончена");
+            _logger.Trace($"Writing result to db ended");
 
-            _logger.Trace($"API метод {nameof(CountLetters)} завершил исполнение");
+            _logger.Trace($"API Method {nameof(CountLetters)} call ended");
             return Ok(letters);
         }
 
