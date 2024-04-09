@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NLog;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UDV_WebApp.Core.Abstractions;
 using UDV_WebApp.Core.Models;
-using UDV_WebApp.Application.Services;
+using UDV_WebApp.DataAccess.Entities;
+using UDV_WebApp.API.Contracts;
 
 namespace UDV_WebApp.Controllers
 {
@@ -27,28 +25,17 @@ namespace UDV_WebApp.Controllers
         }
 
         [HttpGet("CountLettersFromPosts")]
-        public async Task<IActionResult> CountLetters(
-            [FromQuery] string accessToken,
-            [FromQuery] long pageId)
+        public async Task<ActionResult<CountLettersResponse>> CountLetters([FromQuery] CountLettersRequest request)
         {
-            _logger.Trace($"API Method called: {nameof(CountLetters)}");
-            var posts = await _vkService.GetPostsAsync(accessToken, pageId);
+            _logger.Debug($"API Method called: {nameof(CountLetters)}");
+            var posts = await _vkService.GetPostsAsync(request.AccessToken, request.PageId, request.PostsCount);
             var letters = _statsService.CountLetters(posts);
 
-            _logger.Trace($"Writing result to db...");
-            await _repository.Create(new CountResult(Guid.NewGuid(), letters));
-            _logger.Trace($"Writing result to db ended");
+            var guid = await _repository.Create(new CountResult(Guid.NewGuid(), letters));
+            _logger.Debug($"{nameof(CountResultEntity)} created with guid {guid}");
 
-            _logger.Trace($"API Method {nameof(CountLetters)} call ended");
+            _logger.Debug($"API Method {nameof(CountLetters)} call ended");
             return Ok(letters);
-        }
-
-        [HttpGet("GetCountedLettersFromDB")]
-        public async Task<IActionResult> GetCountedLetters()
-        {
-            var countResults = await _repository.GetAll();
-
-            return Ok(countResults);
         }
     }
 }

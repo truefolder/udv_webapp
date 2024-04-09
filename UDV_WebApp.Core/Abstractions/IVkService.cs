@@ -6,6 +6,6 @@ namespace UDV_WebApp.Core.Abstractions
     {
         VkApi GetVkApi(string accessToken);
 
-        Task<IEnumerable<string>> GetPostsAsync(string accessToken, long pageId);
+        Task<IEnumerable<string>> GetPostsAsync(string accessToken, long pageId, ulong postsCount);
     }
 }

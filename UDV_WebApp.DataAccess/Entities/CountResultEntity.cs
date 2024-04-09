@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace UDV_WebApp.DataAccess.Entities
+﻿namespace UDV_WebApp.DataAccess.Entities
 {
     public class CountResultEntity
     {

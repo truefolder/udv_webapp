@@ -1,7 +1,5 @@
 using NLog;
-using NLog.Web;
 using Microsoft.OpenApi.Models;
-using VkNet.Enums.StringEnums;
 using UDV_WebApp.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using UDV_WebApp.Core.Abstractions;
@@ -44,5 +42,5 @@ app.UseSwaggerUI(c =>
 app.UseRouting();
 app.MapControllers();
 
+logger.Debug("Application starting");
 app.Run();
-logger.Trace("Application started");
