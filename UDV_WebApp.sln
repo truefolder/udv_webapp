@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDV_WebApp", "UDV_WebApp\UDV_WebApp.csproj", "{ED179380-8713-45B4-AB09-2C33BD7CD203}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDV_WebApp.API", "UDV_WebApp.API\UDV_WebApp.API.csproj", "{ED179380-8713-45B4-AB09-2C33BD7CD203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDV_WebApp.DataAccess", "UDV_WebApp.DataAccess\UDV_WebApp.DataAccess.csproj", "{09FBD86F-5F87-496B-87C1-B71214414E2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UDV_WebApp.Core", "UDV_WebApp.Core\UDV_WebApp.Core.csproj", "{C32C59DC-F775-422C-9AA4-97014A71C318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDV_WebApp.Application", "UDV_WebApp.Application\UDV_WebApp.Application.csproj", "{FD3AF5C2-A631-4C71-879F-89C572E78419}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{ED179380-8713-45B4-AB09-2C33BD7CD203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED179380-8713-45B4-AB09-2C33BD7CD203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED179380-8713-45B4-AB09-2C33BD7CD203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FBD86F-5F87-496B-87C1-B71214414E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FBD86F-5F87-496B-87C1-B71214414E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FBD86F-5F87-496B-87C1-B71214414E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FBD86F-5F87-496B-87C1-B71214414E2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C32C59DC-F775-422C-9AA4-97014A71C318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C32C59DC-F775-422C-9AA4-97014A71C318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C32C59DC-F775-422C-9AA4-97014A71C318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C32C59DC-F775-422C-9AA4-97014A71C318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD3AF5C2-A631-4C71-879F-89C572E78419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3AF5C2-A631-4C71-879F-89C572E78419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3AF5C2-A631-4C71-879F-89C572E78419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3AF5C2-A631-4C71-879F-89C572E78419}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
