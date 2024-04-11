@@ -29,10 +29,7 @@ namespace UDV_WebApp.Controllers
         {
             _logger.Debug($"API Method called: {nameof(CountLetters)}");
             var posts = await _vkService.GetPostsAsync(request.AccessToken, request.PageId, request.PostsCount);
-            var letters = _statsService.CountLetters(posts);
-
-            var guid = await _repository.Create(new CountResult(Guid.NewGuid(), letters));
-            _logger.Debug($"{nameof(CountResultEntity)} created with guid {guid}");
+            var letters = await _statsService.CountLetters(posts);
 
             _logger.Debug($"API Method {nameof(CountLetters)} call ended");
             return Ok(letters);

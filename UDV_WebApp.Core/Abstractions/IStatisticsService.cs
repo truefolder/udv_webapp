@@ -2,6 +2,6 @@
 {
     public interface IStatisticsService
     {
-        Dictionary<char, int> CountLetters(IEnumerable<string> strings);
+        Task<Dictionary<char, int>> CountLetters(IEnumerable<string> strings);
     }
 }

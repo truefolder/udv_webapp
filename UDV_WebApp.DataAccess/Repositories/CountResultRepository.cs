@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using NLog;
+using System;
 using System.Text.Json;
 using UDV_WebApp.Core.Abstractions;
 using UDV_WebApp.Core.Models;
@@ -9,10 +12,12 @@ namespace UDV_WebApp.DataAccess.Repositories
     public class CountResultRepository : IRepository<CountResult>
     {
         private readonly VkAppDbContext _context;
+        private NLog.ILogger _logger;
 
         public CountResultRepository(VkAppDbContext context)
         {
             _context = context;
+            _logger = LogManager.GetCurrentClassLogger();
         }
 
         public async Task<List<CountResult>> GetAll()
@@ -39,6 +44,7 @@ namespace UDV_WebApp.DataAccess.Repositories
             await _context.CountResultEntities.AddAsync(countResultEntity);
             await _context.SaveChangesAsync();
 
+            _logger.Debug($"{nameof(CountResultEntity)} created with guid {countResultEntity.Id}");
             return countResultEntity.Id;
         }
     }
